@@ -26,7 +26,7 @@ public class EGLUtils {
         int[] version = new int[2];
         EGL14.eglInitialize(eglDis, version, 0, version, 1);
         int confAttr[] = {
-                EGL14.EGL_SURFACE_TYPE,EGL14.EGL_WINDOW_BIT,
+                EGL14.EGL_SURFACE_TYPE, EGL14.EGL_WINDOW_BIT,
                 EGL14.EGL_RED_SIZE, 8,
                 EGL14.EGL_GREEN_SIZE, 8,
                 EGL14.EGL_BLUE_SIZE, 8,
@@ -37,7 +37,6 @@ public class EGLUtils {
                 EGL14.EGL_SAMPLES, 4,
                 EGL14.EGL_NONE
         };
-
 
 
         EGLConfig[] configs = new EGLConfig[1];

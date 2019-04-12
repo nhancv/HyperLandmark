@@ -16,7 +16,8 @@ public class GLFramebuffer {
     private int[] textures;
 
     private SurfaceTexture surfaceTexture;
-    public void initFramebuffer(){
+
+    public void initFramebuffer() {
 
         textures = new int[1];
         GLES20.glGenTextures(1, textures, 0);
@@ -28,21 +29,21 @@ public class GLFramebuffer {
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
     }
 
-    public SurfaceTexture getSurfaceTexture(){
+    public SurfaceTexture getSurfaceTexture() {
         surfaceTexture = new SurfaceTexture(textures[0]);
         return surfaceTexture;
     }
 
-    public void release(){
-        GLES20.glDeleteTextures(1,textures,0);
-        if(surfaceTexture != null ){
+    public void release() {
+        GLES20.glDeleteTextures(1, textures, 0);
+        if (surfaceTexture != null) {
             surfaceTexture.release();
             surfaceTexture = null;
         }
     }
 
-    public int drawFrameBuffer(){
-        if(surfaceTexture != null){
+    public int drawFrameBuffer() {
+        if (surfaceTexture != null) {
             surfaceTexture.updateTexImage();
             surfaceTexture.getTransformMatrix(mSTMatrix);
         }

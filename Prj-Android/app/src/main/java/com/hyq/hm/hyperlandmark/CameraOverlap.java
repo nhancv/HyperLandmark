@@ -24,7 +24,8 @@ public class CameraOverlap {
     private Camera.PreviewCallback mPreviewCallback;
 
     private Context context;
-    public CameraOverlap(Context context){
+
+    public CameraOverlap(Context context) {
         this.context = context;
     }
 
@@ -68,8 +69,7 @@ public class CameraOverlap {
             try {
                 Camera.Parameters parameters = mCamera.getParameters();
                 List<String> flashModes = parameters.getSupportedFlashModes();
-                if(flashModes !=null && flashModes.contains(Camera.Parameters.FLASH_MODE_OFF))
-                {
+                if (flashModes != null && flashModes.contains(Camera.Parameters.FLASH_MODE_OFF)) {
                     parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
                 }
 
@@ -101,10 +101,10 @@ public class CameraOverlap {
 
                 }
 
-                if(CameraFacing == Camera.CameraInfo.CAMERA_FACING_BACK){
+                if (CameraFacing == Camera.CameraInfo.CAMERA_FACING_BACK) {
                     if (parameters.getSupportedFocusModes().contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)) {
                         parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
-                    } else{
+                    } else {
                         parameters.setFocusMode(parameters.FOCUS_MODE_AUTO);
                     }
                 }
@@ -124,8 +124,9 @@ public class CameraOverlap {
             mCamera.setPreviewCallback(previewCallback);
         }
     }
-    public int getOrientation(){
-        if(mCameraInfo != null){
+
+    public int getOrientation() {
+        if (mCameraInfo != null) {
             return mCameraInfo.orientation;
         }
         return 0;
